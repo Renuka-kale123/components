@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@renuka-kale123/button": "^1.0.0",
-        "@testing-library/react-native": "^12.4.4",
+        "@testing-library/react-native": "^12.4.5",
         "axios": "^1.6.8",
         "cbuttonpackage": "^1.0.0",
         "react": "^18.2.0",
