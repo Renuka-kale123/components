@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 =====================================================
 import React from 'react';
 import { View, FlatList, Text, StyleSheet } from 'react-native';
@@ -107,4 +108,115 @@ export default App;
 // };
 
 // export default App;
+=======
+=====================================================
+import React from 'react';
+import { View, FlatList, Text, StyleSheet } from 'react-native';
+ 
+interface Employee {
+  id: number;
+  name: string;
+}
+ 
+const App = () => {
+  const employees: Employee[] = [
+    { id: 1, name: 'John Doe' },
+    { id: 2, name: 'Jane Smith' },
+    { id: 3, name: 'Alice Johnson' },
+    { id: 4, name: 'Bob Williams' },
+    { id: 5, name: 'Emily Brown' },
+    { id: 6, name: 'Michael Davis' },
+    { id: 7, name: 'Sophia Wilson' },
+    { id: 8, name: 'James Taylor' },
+    { id: 9, name: 'Olivia Martinez' },
+    { id: 10, name: 'David Anderson' },
+    { id: 11, name: 'Emma Jones' },
+    { id: 12, name: 'William Garcia' },
+    { id: 13, name: 'Charlotte Brown' },
+    { id: 14, name: 'Daniel Lee' },
+    { id: 15, name: 'Mia Rodriguez' },
+  ];
+ 
+  const renderItem = ({ item }: { item: Employee }) => (
+    <View style={{ padding: 10 }}>
+      <Text>{`ID: ${item.id}`}</Text>
+      <Text>{`Name: ${item.name}`}</Text>
+    </View>
+  );
+ 
+  return (
+   
+    <View style={{  justifyContent: 'center', alignItems: 'center'}} >
+      <Text style={{fontSize:30,color:'black'}}>Syngenta Organization</Text>
+      <FlatList style={styles.list}
+        data={employees}
+        renderItem={renderItem}
+keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
+  );
+};
+ 
+const styles=StyleSheet.create({
+  list:{
+  
+    fontSize:30,
+    color:"white",
+   
+    margin:10,
+    padding:5,
+    borderRadius:10,
+  }
+})
+export default App;
+
+
+// import React, { useState, useEffect } from 'react';
+// import { View, FlatList, Text } from 'react-native';
+
+// const App = () => {
+//   const [data, setData] = useState([]);
+
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+//   const fetchData = () => {
+//     const token = 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjcm9wd2lzZUpXVCIsImF1ZCI6IjkxNzg3NTczNzY0OUlOIiwic3ViIjoiYzBlNGE2NzAtODMwZS00MzgwLTg0ZTktNDVmNDk1YWViNWFhIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImNvdW50cnlDb2RlIjoiSU4iLCJpYXQiOjE2Nzg3NzI1Mjl9.DMsJbMC5S0WKfP9Xl78TLmz5oUylSFsFnlndnXCTKk0QLDGbb-pOPNs7a1OZziHVlPp_W2-xtRi_Wuf3LhnyYg';
+//     fetch('https://qa-in.api.cropwise-smallgrowers.syndpe.com/api/v1/services', {  
+//       headers: { Authorization: `Bearer ${token}` },
+//     })
+
+//     .then((response) => {
+//       console.log(response)
+
+//       if (response.status === 401) {
+//         throw new Error('Authentication error! Please check your credentials.');
+//       }
+//       return response.json();
+//     })
+//     .then((json) => {
+//       setData(json);
+//     })
+//     .catch((error) => {
+//       console.error('Error fetching data:', error);
+//     });
+
+//   };
+
+//   return (
+// <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+// <FlatList
+//         data={data}
+//         renderItem={({ item }) => (
+// <Text>{item}</Text>
+//         )}
+//         keyExtractor={(item, index) => index.toString()}
+//       />
+// </View>
+//   );
+// };
+
+// export default App;
+>>>>>>> a8b7ebafedcb9dea41a0027bc3259026e8b58b24
 //=====================================================
