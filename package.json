@@ -1,0 +1,36 @@
+{
+  "name": "react-native-buttoncustom",
+  "version": "1.0.0",
+  "description": "My Customized button",
+  "main": "index.js",
+  
+  "author": "syngenta",
+  "license": "ISC",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.73.6"
+  },
+  "dependencies": {
+    "@testing-library/react-native": "^12.4.4",
+    "react-test-renderer": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native/babel-preset": "0.73.21",
+    "@react-native/eslint-config": "0.73.2",
+    "@react-native/metro-config": "0.73.5",
+    "@react-native/typescript-config": "0.73.1",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.73",
+    "jest": "^29.7.0"
+  }
+}
