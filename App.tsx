@@ -1,55 +1,27 @@
 import React from 'react';
-import { Text, View, ViewStyle, TextStyle, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-
-interface ButtonProps extends TouchableOpacityProps {
-  width: number ;
-  height: number ;
-  bgColor: string;
-  title: string;
-  titleColor: string;
-  titleSize: number;
-  borderRadius: number;
-  accessibiltyLabel?:string;
-  accesible?:boolean;
-  extraParam?:string;
-  onPress?():void;
-}
+import { View, StyleSheet, Dimensions,Text } from 'react-native';
+import ButtonComponent from './Task/ButtonComponent';
+const { width, height } = Dimensions.get('screen');
  
-const App = ({
-  width,
-  height,
-  bgColor,
-  title,
-  titleColor,
-  titleSize,
-  borderRadius,
-  onPress,
-  accessibilityLabel,
-  accessible,
-  extraParam,
-  ...rest
-}: ButtonProps) => {
+const App = () => {
+  const handleClick=()=>{
+    console.warn("Button Clicked")
+  }
   return (
-    <TouchableOpacity
-     onPress={onPress}  
-     accessibilityLabel={accessibilityLabel}
-    accessible={accessible}
-    {...rest}>
-<View style={{
-        width: width,
-        height: height,
-        backgroundColor: bgColor,
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        borderRadius: borderRadius,
-        // margin:margin,
-        // padding:padding
-    }}>
-<Text style={{ color: titleColor, fontSize: titleSize }}>{title}</Text>
+<View style={styles.container}>
+<ButtonComponent width={200} height={50} bgColor={'orange'} title={'my button'} titleColor={'black'} titleSize={20} borderRadius={10} onPress={handleClick}/>
 </View>
-</TouchableOpacity>
   );
 };
  
-export default App;
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   width:width,
+   height:height,
+   justifyContent:'center',
+   alignItems:'center'
+  }
+});
+ 
+export default App
