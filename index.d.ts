@@ -10,7 +10,7 @@ declare module "pkg" {
     titleColor: string;
     titleSize: number;
     borderRadius: number;
-    accessibiltyLabel?: string;
+    accessibilityLabel?: string;
     accessible?: boolean;
     extraParam?: string;
     onPress?(): void;

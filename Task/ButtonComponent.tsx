@@ -33,7 +33,9 @@ const ButtonComponent = ({
     <TouchableOpacity
      onPress={onPress}  
      accessibilityLabel={accessibilityLabel}
-    accessible={accessible}
+     accessible={accessible}
+     
+   
     {...rest}>
 <View style={{
         width: width,
