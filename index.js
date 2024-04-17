@@ -54,9 +54,9 @@ export function testClickFunction() {
   );
 
   const buttonInstance = component.root.findByType(ButtonComponent);
-  fireEvent.press(buttonInstance); // Simulate a click event on the button
+  fireEvent.press(buttonInstance); 
 
-  expect(clicked).toBe(true); // Assert that the click function was called
+  expect(clicked).toBe(true); 
 }
 
 export function testButtonStyles() {
@@ -91,15 +91,13 @@ export function testButtonAccessibility() {
       titleColor={'black'}
       titleSize={20}
       borderRadius={10}
-      accessibilityLabel="My button" // Adding accessibility label
-      accessible={true} // Making button accessible
+      accessibilityLabel="My button" 
+      accessible={true}
     />
   );
   const buttonInstance = component.root.findByType(ButtonComponent);
 
-  // Check button accessibility attributes
   expect(buttonInstance.props.accessibilityLabel).toBe('My button');
   expect(buttonInstance.props.accessible).toBe(true);
 }
 
-// Other exports and module functionality
