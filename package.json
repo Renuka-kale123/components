@@ -10,6 +10,7 @@
         "test": "jest"
     },
     "dependencies": {
+        "pkg": "git+https://github.com/Renuka-kale123/components.git#main",
         "@renuka-kale123/button": "^1.0.0",
         "@testing-library/react-native": "^12.4.5",
         "axios": "^1.6.8",
