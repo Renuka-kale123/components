@@ -10,26 +10,9 @@
 // index.js (pkg module)
 
 import React from 'react';
-import renderer from 'react-test-renderer';
-import ButtonComponent from '../Task/ButtonComponent';
-import { fireEvent } from '@testing-library/react-native';
-
-import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
- 
-// export interface ButtonProps {
-//   width: number;
-//   height: number;
-//   bgColor: string;
-//   title: string;
-//   titleColor: string;
-//   titleSize: number;
-//   borderRadius: number;
-//   accessibilityLabel?: string;
-//   accessible?: boolean;
-//   extraParam?: string;
-//   onPress?(): void;
-// }
+import renderer from 'react-test-renderer';
+import { fireEvent } from '@testing-library/react-native';
  
 export const ButtonComponent = ({
   width,
@@ -61,10 +44,10 @@ export const ButtonComponent = ({
 </TouchableOpacity>
   );
 };
-
+ 
 export function testRenderSnapshot() {
   const snapShot = renderer.create(
-    <ButtonComponent
+<ButtonComponent
       width={200}
       height={50}
       bgColor={'orange'}
@@ -76,15 +59,15 @@ export function testRenderSnapshot() {
   ).toJSON();
   expect(snapShot).toMatchSnapshot();
 }
-
+ 
 export function testClickFunction() {
   let clicked = false;
   const handleClick = () => {
     clicked = true;
   };
-
+ 
   const component = renderer.create(
-    <ButtonComponent
+<ButtonComponent
       width={200}
       height={50}
       bgColor={'orange'}
@@ -95,16 +78,16 @@ export function testClickFunction() {
       onPress={handleClick}
     />
   );
-
-  const buttonInstance = component.root.findByType(ButtonComponent);
-  fireEvent.press(buttonInstance); 
-
-  expect(clicked).toBe(true); 
+ 
+  const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
+  fireEvent.press(buttonInstance);
+ 
+  expect(clicked).toBe(true);
 }
-
+ 
 export function testButtonStyles() {
   const component = renderer.create(
-    <ButtonComponent
+<ButtonComponent
       width={200}
       height={50}
       bgColor={'orange'}
@@ -114,19 +97,19 @@ export function testButtonStyles() {
       borderRadius={10}
     />
   );
-  const buttonInstance = component.root.findByType(ButtonComponent);
-
-  expect(buttonInstance.props.width).toBe(200);
-  expect(buttonInstance.props.height).toBe(50);
-  expect(buttonInstance.props.bgColor).toBe('orange');
-  expect(buttonInstance.props.titleColor).toBe('black');
-  expect(buttonInstance.props.titleSize).toBe(20);
-  expect(buttonInstance.props.borderRadius).toBe(10);
+  const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
+ 
+  expect(buttonInstance.props.style.width).toBe(200);
+  expect(buttonInstance.props.style.height).toBe(50);
+  expect(buttonInstance.props.style.backgroundColor).toBe('orange');
+  expect(buttonInstance.findByType(Text).props.style.color).toBe('black');
+  expect(buttonInstance.findByType(Text).props.style.fontSize).toBe(20);
+  expect(buttonInstance.props.style.borderRadius).toBe(10);
 }
-
+ 
 export function testButtonAccessibility() {
   const component = renderer.create(
-    <ButtonComponent
+<ButtonComponent
       width={200}
       height={50}
       bgColor={'orange'}
@@ -134,13 +117,12 @@ export function testButtonAccessibility() {
       titleColor={'black'}
       titleSize={20}
       borderRadius={10}
-      accessibilityLabel="My button" 
+      accessibilityLabel="My button"
       accessible={true}
     />
   );
-  const buttonInstance = component.root.findByType(ButtonComponent);
-
+  const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
+ 
   expect(buttonInstance.props.accessibilityLabel).toBe('My button');
   expect(buttonInstance.props.accessible).toBe(true);
 }
-
