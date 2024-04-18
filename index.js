@@ -14,9 +14,52 @@ import renderer from 'react-test-renderer';
 import ButtonComponent from '../Task/ButtonComponent';
 import { fireEvent } from '@testing-library/react-native';
 
-export const ButtonComponent = (props) => {
-  // Define the implementation of ButtonComponent here
-  return null; // Replace with actual implementation
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+ 
+// export interface ButtonProps {
+//   width: number;
+//   height: number;
+//   bgColor: string;
+//   title: string;
+//   titleColor: string;
+//   titleSize: number;
+//   borderRadius: number;
+//   accessibilityLabel?: string;
+//   accessible?: boolean;
+//   extraParam?: string;
+//   onPress?(): void;
+// }
+ 
+export const ButtonComponent = ({
+  width,
+  height,
+  bgColor,
+  title,
+  titleColor,
+  titleSize,
+  borderRadius,
+  accessibilityLabel,
+  accessible,
+  onPress,
+}) => {
+  return (
+<TouchableOpacity
+      style={{
+        width,
+        height,
+        backgroundColor: bgColor,
+        borderRadius,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+      accessibilityLabel={accessibilityLabel}
+      accessible={accessible}
+      onPress={onPress}
+>
+<Text style={{ color: titleColor, fontSize: titleSize }}>{title}</Text>
+</TouchableOpacity>
+  );
 };
 
 export function testRenderSnapshot() {
