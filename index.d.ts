@@ -1,42 +1,44 @@
 
-import { TouchableOpacityProps } from 'react-native';
+// import { TouchableOpacityProps } from 'react-native';
  
-declare module "pkg" {
+// declare module "pkg" {
 
-  interface ButtonProps extends TouchableOpacityProps {
+//   interface ButtonProps extends TouchableOpacityProps {
 
-    width: number;
+//     width: number;
 
-    height: number;
+//     height: number;
 
-    bgColor: string;
+//     bgColor: string;
 
-    title: string;
+//     title: string;
 
-    titleColor: string;
+//     titleColor: string;
 
-    titleSize: number;
+//     titleSize: number;
 
-    borderRadius: number;
+//     borderRadius: number;
 
-    accessibilityLabel?: string; // Corrected spelling
+//     accessibilityLabel?: string; // Corrected spelling
 
-    accessible?: boolean;
+//     accessible?: boolean;
 
-    extraParam?: string;
+//     extraParam?: string;
 
-    onPress?(): void;
+//     onPress?(): void;
 
-  }
+//   }
  
-  export const ButtonComponent: React.ComponentType<ButtonProps>;
+//   export const ButtonComponent: React.ComponentType<ButtonProps>;
  
-  export function testRenderSnapshot(): void;
+//   export function testRenderSnapshot(): void;
 
-  export function testClickFunction(): void;
+//   export function testClickFunction(): void;
 
-  export function testButtonStyles(): void;
+//   export function testButtonStyles(): void;
 
-  export function testButtonAccessibility(): void;
+  
 
-}
+// }
+
+export function testButtonAccessibility(): any;
