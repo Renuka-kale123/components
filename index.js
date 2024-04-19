@@ -126,3 +126,4 @@ export function testButtonAccessibility() {
   expect(buttonInstance.props.accessibilityLabel).toBe('My button');
   expect(buttonInstance.props.accessible).toBe(true);
 }
+export {ButtonComponent,testButtonAccessibility,testButtonStyles,testClickFunction,testRenderSnapshot}
