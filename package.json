@@ -10,8 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "componentspkg": "git+https://github.com/Renuka-kale123/components.git#componentPkg",
     "react": "18.2.0",
-    "react-native": "0.73.7"
+    "react-native": "^0.73.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
