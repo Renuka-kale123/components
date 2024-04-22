@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import renderer from 'react-test-renderer';
-import { fireEvent } from '@testing-library/react-native';
 
 export const testButtonAccessibility=()=>{
     const component = renderer.create(
@@ -23,7 +22,6 @@ export const testButtonAccessibility=()=>{
   expect(buttonInstance.props.accessible).toBe(true);
 }
 export function testClickFunction() {
-  console.log("Hello22222")
   let clicked = false;
   const handleClick = () => {
     clicked = true;
@@ -69,6 +67,7 @@ export function testButtonStyles() {
   expect(buttonInstance.findByType(Text).props.style.fontSize).toBe(20);
   expect(buttonInstance.props.style.borderRadius).toBe(10);
 }
+ 
  
 export const ButtonComponent = ({
   width,
