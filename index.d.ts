@@ -15,6 +15,5 @@ interface ButtonProps extends TouchableOpacityProps {
   }
 
 export const ButtonComponent: React.ComponentType<ButtonProps>; 
-export function testRenderSnapshot(): void;
 export function testClickFunction(): void;
 export function testButtonStyles(): void;
