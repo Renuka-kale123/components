@@ -1,0 +1,137 @@
+// tslint:disable: max-classes-per-file
+import AsyncStorage from '@react-native-community/async-storage';
+import ConsoleLog from '../ConsoleLog';
+class LocalStorage {
+  /**
+   *
+   * @param key
+   */
+  public async retrieveData(key: any) {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value !== null) {
+        return value;
+      }
+    } catch (error) {
+      ConsoleLog.printConsoleLog('Error in getting retrieved data', error);
+    }
+  }
+  /**
+   *
+   * @param key
+   * @param value
+   */
+  public async storeData(key: any, value: any) {
+    try {
+      await AsyncStorage.setItem(key, value);
+    } catch (error) {
+      ConsoleLog.printConsoleLog('Error in setting stored data', error);
+    }
+  }
+
+  public async storeMultiData(keyPairValue: any) {
+    try {
+      await AsyncStorage.multiSet(keyPairValue);
+    } catch (error) {
+      ConsoleLog.printConsoleLog('Error in setting stored data', error);
+    }
+  }
+
+  public async retrieveMultiData(keyPairValue: any) {
+    try {
+      const result = (await AsyncStorage.multiGet(keyPairValue)) as any;
+      if (result !== null || result !== undefined) {
+        return result.map((obj: any) => {
+          return [obj[0], obj[1] === null ? undefined : obj[1]];
+        });
+      }
+      return result;
+    } catch (error) {
+      ConsoleLog.printConsoleLog('Error in setting stored data', error);
+    }
+  }
+
+  public async removeMultiple(keyPairValue: any) {
+    try {
+      await AsyncStorage.multiRemove(keyPairValue);
+    } catch (error) {
+      ConsoleLog.printConsoleLog('Error in deleting stored data', error);
+    }
+  }
+}
+
+export default class AsyncStorageManager {
+  static localStorage = new LocalStorage();
+  static LOCAL_KEYS: any;
+}
+
+export const LOCAL_KEYS = {
+  WALK_THROUGH_COMPLETE: 'WALK_THROUGH_COMPLETE',
+  USER_PHONE_NUMBER: 'USER_PHONE_NUMBER',
+  PROPERTY_WALK_THROUGH_COMPLETE: 'PROPERTY_WALK_THROUGH_COMPLETE',
+  AUTH_TOKEN_VALUE: 'AUTH_TOKEN_VALUE',
+  SEARCH_HISTORY: 'SEARCH_HISTORY',
+  PROPERTY_SEARCH_HISTORY: 'PROPERTY_SEARCH_HISTORY',
+  FIELD_SEARCH_HISTORY: 'FIELD_SEARCH_HISTORY',
+  SEASON_SEARCH_HISTORY: 'SEASON_SEARCH_HISTORY',
+  SHOW_DRAW_FIELD_TUTORIAL: 'showDrawFieldTutorial',
+  DEFAULT_SUPPORTED_LANGUAGE: 'defaultLanguage',
+  SATELLITE_SETTINGS: 'SATELLITE_SETTINGS',
+  LANGUAGE_TRANSLATION: 'LANGUAGE_TRANSLATION',
+  LANGUAGE_TRANSLATION_TIME_UPDATE: 'LANGUAGE_TRANSLATION_TIME_UPDATE',
+  IS_USER_LOGGEDIN: 'IS_USER_LOGGEDIN',
+  IS_ACTIVE_USER: 'IS_ACTIVE_USER',
+  USER_SELECTED_CROP: 'USER_SELECTED_CROP',
+  USER_SELECTED_STATE_ID: 'USER_SELECTED_STATE_ID',
+  USER_SELECTED_DISTRICT_ID: 'USER_SELECTED_DISTRICT_ID',
+  USER_SELECTED_STATE: 'USER_SELECTED_STATE',
+  USER_SELECTED_DISTRICT: 'USER_SELECTED_DISTRICT',
+  FCM_TOKEN: 'FCM_TOKEN',
+  IS_FCM_TOKEN_SAVED: 'IS_FCM_TOKEN_SAVED',
+  IS_LOYALTY_ENABLED: 'IS_LOYALTY_ENABLED',
+  IS_IST_TIME_USER: 'IS_IST_TIME_USER',
+  NUMBER_OF_CROPS_DOWNLOADED: 'NUMBER_OF_CROPS_DOWNLOADED',
+  TOTAL_NUMBER_OF_CROPS: 'TOTAL_NUMBER_OF_CROPS',
+  USER_SELECTED_ECOMMERCE_MERCHANT: 'USER_SELECTED_ECOMMERCE_MERCHANT',
+  USER_SELECTED_ECOMMERCE_SELECTED_ADDRESS:
+    'USER_SELECTED_ECOMMERCE_SELECTED_ADDRESS',
+  USER_SELECTED_NON_DELIVERABLE_ECOMMERCE_ADD:
+    'USER_SELECTED_NON_DELIVERABLE_ECOMMERCE_ADD',
+  DASHBOARD_FEATURES_SLIDER_LIST: 'DASHBOARD_FEATURES_SLIDER_LIST',
+  DASHBOARD_FEATURES_SERVICES_LIST: 'DASHBOARD_FEATURES_SERVICES_LIST',
+  ECOMMERCE_CATEGORIES_LIST: 'ECOMMERCE_CATEGORIES_LIST',
+  IS_LANGUAGE_SELECTED: 'IS_LANGUAGE_SELECTED',
+  PHRASE_TRANSLATION_UPDATE: 'PHRASE_TRANSLATION_UPDATE',
+  EXISTING_USER_TEMP_DELETE_MERCHANT: 'EXISTING_USER_TEMP_DELETE_MERCHANT',
+  CHANGE_LANG_NAVIGATE_TO: 'CHANGE_LANG_NAVIGATE_TO',
+  TERMS_ID_FOR_VN: 'TERMS_ID_FOR_VN',
+  NEWS_FEED: 'NEWS_FEED',
+  REFERRAL_CODE: 'REFERRAL_CODE',
+  REFERRAL_API_RESPONSE: 'REFERRAL_API_RESPONSE',
+  LAST_POSITION_COORDS: 'LAST_POSITION_COORDS',
+  IS_USER_FIRST_TIME_REGISTER: 'IS_USER_FIRST_TIME_REGISTER',
+  CROP_NOT_DOWNLOADED: 'CROP_NOT_DOWNLOAD',
+  DIAG_PENDING_POPUP: 'DIAG_PENDING_POPUP',
+  MARKETING_UTM_DETAILS: 'MARKETING_UTM_DETAILS',
+  USER_SELECTED_ADDRESS_FOR_WEATHER: 'USER_SELECTED_ADDRESS_FOR_WEATHER',
+  IS_LOCATION_ENABLE_DENIED: 'IS_LOCATION_ENABLED_DENIED',
+  IS_LOCATION_PREMISSION_ASKED: 'IS_LOCATION_PREMISSION_ASKED',
+  WEATHER_TALUKA_NAME: 'WEATHER_TALUKA_NAME',
+  NEAR_ME_STATE: 'NEAR_ME_STATE',
+  NEAR_ME_DISTRICT: 'NEAR_ME_DISTRICT',
+  NEAR_ME_TALUKA: 'NEAR_ME_TALUKA',
+  APP_FEEDBACK_TAKEN: 'APP_FEEDBACK_TAKEN',
+  CENTRIGO_GROWER_INFO: 'CENTRIGO_GROWER_INFO',
+  LAST_UPDATED_DATE_DASHBOARD_FEATURE: 'LAST_UPDATED_DATE_DASHBOARD_FEATURE',
+  LAST_UPDATED_DATE_DASHBOARD_SLIDER: 'LAST_UPDATED_DATE_DASHBOARD_SLIDER',
+  DEEP_LINK_URL_CHECK: 'DEEP_LINK_URL_CHECK',
+  DEEP_LINK_LANG_CHANGE_FLAG: 'DEEP_LINK_LANG_CHANGE_FLAG',
+  FMF_SELECTED_FILTERS: 'FMF_SELECTED_FILTERS',
+  PROFILE_ACTIVATION_MONTH: 'PROFILE_ACTIVATION_MONTH',
+  DEEP_LINK_IOS_KEY: 'DEEP_LINK_IOS_KEY',
+  AGE_RANGE_POPUP_DECLINED_TIME: 'AGE_RANGE_POPUP_DECLINED_TIME',
+  AGE_RANGE_POPUP_ENABLED: 'AGE_RANGE_POPUP_ENABLED',
+  ONBOARDING_SCREEN: 'ONBOARDING_SCREEN',
+  DASHBOARD_CONFIG: 'DASHBOARD_CONFIG',
+  DASHBOARD_BANNER: 'DASHBOARD_BANNER'
+};

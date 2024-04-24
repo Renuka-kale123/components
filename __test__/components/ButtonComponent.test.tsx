@@ -1,21 +1,21 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import renderer from 'react-test-renderer';
-export { BottomPopup } from './BottomPopup/BottomPopup';
-export { ButtonComponent } from './src/Components/ButtonComponent/ButtonComponent';
+import { ButtonComponent } from '../../src/Components/ButtonComponent/ButtonComponent';
+import { fireEvent } from '@testing-library/react-native';
+
 export const testButtonAccessibility=()=>{
     const component = renderer.create(
 <ButtonComponent
-      width={200}
-      height={50}
-      bgColor={'orange'}
-      title={'my button'}
-      titleColor={'black'}
-      titleSize={20}
-      borderRadius={10}
-      accessibilityLabel="My button"
-      accessible={true}
-    />
+            width={200}
+            height={50}
+            bgColor={'orange'}
+            title={'my button'}
+            titleColor={'black'}
+            titleSize={20}
+            borderRadius={10}
+            accessibilityLabel="My button"
+            accessible={true} onPress={undefined}    />
   );
   const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
  
@@ -30,15 +30,14 @@ export function testClickFunction() {
  
   const component = renderer.create(
 <ButtonComponent
-      width={200}
-      height={50}
-      bgColor={'orange'}
-      title={'my button'}
-      titleColor={'black'}
-      titleSize={20}
-      borderRadius={10}
-      onPress={handleClick}
-    />
+          width={200}
+          height={50}
+          bgColor={'orange'}
+          title={'my button'}
+          titleColor={'black'}
+          titleSize={20}
+          borderRadius={10}
+          onPress={handleClick} accessibilityLabel={undefined} accessible={undefined}    />
   );
  
   const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
@@ -50,14 +49,13 @@ export function testClickFunction() {
 export function testButtonStyles() {
   const component = renderer.create(
 <ButtonComponent
-      width={200}
-      height={50}
-      bgColor={'orange'}
-      title={'my button'}
-      titleColor={'black'}
-      titleSize={20}
-      borderRadius={10}
-    />
+          width={200}
+          height={50}
+          bgColor={'orange'}
+          title={'my button'}
+          titleColor={'black'}
+          titleSize={20}
+          borderRadius={10} accessibilityLabel={undefined} accessible={undefined} onPress={undefined}    />
   );
   const buttonInstance = component.root.findByType(TouchableOpacity); // Change ButtonComponent to TouchableOpacity
  
@@ -69,34 +67,3 @@ export function testButtonStyles() {
   expect(buttonInstance.props.style.borderRadius).toBe(10);
 }
  
- 
-export const ButtonComponent = ({
-  width,
-  height,
-  bgColor,
-  title,
-  titleColor,
-  titleSize,
-  borderRadius,
-  accessibilityLabel,
-  accessible,
-  onPress,
-}) => {
-  return (
-<TouchableOpacity
-      style={{
-        width,
-        height,
-        backgroundColor: bgColor,
-        borderRadius,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-      accessibilityLabel={accessibilityLabel}
-      accessible={accessible}
-      onPress={onPress}
->
-<Text style={{ color: titleColor, fontSize: titleSize }}>{title}</Text>
-</TouchableOpacity>
-  );
-};
