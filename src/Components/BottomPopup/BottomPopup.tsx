@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-
 import {
   TouchableOpacity,
   View,
@@ -58,6 +57,7 @@ export const BottomPopup: FunctionComponent<BottomPopupProps> = ({
 
   return (
     <View style={bottomPopupStyles.container}>
+      
       {closeIcon()}
       <View style={bottomPopupStyles.titleAndIconContainer}>
         <Image source={imageName} />
