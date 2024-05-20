@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
 import renderer from 'react-test-renderer';
 export { BottomPopup } from './src/Components/BottomPopup/BottomPopup';
-export { ButtonComponent } from './src/Components/ButtonComponent/ButtonComponent';
+
 export const testButtonAccessibility=()=>{
     const component = renderer.create(
 <ButtonComponent
