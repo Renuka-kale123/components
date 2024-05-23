@@ -10,17 +10,21 @@
         "test": "jest"
     },
     "dependencies": {
-        "pkg": "git+https://github.com/Renuka-kale123/components.git#main",
         "@renuka-kale123/button": "^1.0.0",
         "@testing-library/react-native": "^12.4.5",
         "axios": "^1.6.8",
         "cbuttonpackage": "^1.0.0",
+        "i18n": "^0.15.1",
+        "i18n-js": "^4.4.3",
+        "pkg": "git+https://github.com/Renuka-kale123/components.git#main",
         "react": "^18.2.0",
         "react-native": "0.73.6",
         "react-native-buttonc": "^1.0.0",
         "react-native-buttoncustom": "^1.0.0",
         "react-native-cbutton": "^1.0.0",
-        "react-native-mybuttoncomponent": "^1.0.0"
+        "react-native-device-info": "^11.1.0",
+        "react-native-mybuttoncomponent": "^1.0.0",
+        "react-native-vector-icons": "^10.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.20.0",
